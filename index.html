@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="style.css">
+  <link type="Image/x-icon" href="./favicon.ico" rel="icon">
+</head>
+
+<body>
+  <header>
+    <h1>Minesweeper</h1>
+  </header>
+  <main>
+    <div class="wrapper-modal-start wrapper-modal">
+      <div class="modal-start">
+        <div class="options">
+          <div class="header-options">
+            <label for="name">Name (4 to 8 characters):</label>
+            <input class='name' type="text" id="name" name="name" required minlength="4" maxlength="10" size="10"
+              autofocus />
+            <button class="button button-leader">
+              <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.000000 64.000000"
+                preserveAspectRatio="xMidYMid meet">
+                <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" stroke="none">
+                  <path d="M302 575 c-8 -16 -23 -28 -42 -32 -39 -7 -44 -16 -20 -38 13 -11 20 -31 20 -53 0 -29 3 -33 18 -26 22 10 62 10 85 0 14 -7 17 -3 17 27 0 19 7 40 15 47 24 20 18 37 -15 44 -19 3 -34 15 -42 31 -6 14 -14 25 -18 25 -4 0 -12
+                  -11 -18 -25z m28 -25 c0 -6 12 -15 26 -20 23 -9 24 -12 13 -27 -8 -9 -13 -23
+                  -11 -32 2 -13 -6 -16 -38 -16 -32 0 -40 3 -38 16 2 9 -3 23 -11 32 -11 15 -10
+                  18 13 27 14 5 26 14 26 20 0 5 5 10 10 10 6 0 10 -5 10 -10z" />
+                  <path d="M176 583 c-3 -3 -3 -10 0 -14 7 -12 34 -11 34 0 0 11 -26 22 -34 14z" />
+                  <path d="M443 583 c-18 -6 -16 -23 1 -23 17 0 30 16 19 23 -5 2 -14 2 -20 0z" />
+                  <path d="M150 500 c0 -5 9 -10 20 -10 11 0 20 5 20 10 0 6 -9 10 -20 10 -11 0
+                  -20 -4 -20 -10z" />
+                  <path d="M450 500 c0 -5 9 -10 20 -10 11 0 20 5 20 10 0 6 -9 10 -20 10 -11 0
+                  -20 -4 -20 -10z" />
+                  <path d="M177 434 c-4 -4 -4 -10 -1 -15 6 -10 34 0 34 12 0 10 -24 12 -33 3z" />
+                  <path d="M430 431 c0 -11 26 -22 34 -14 3 3 3 10 0 14 -7 12 -34 11 -34 0z" />
+                  <path d="M227 364 c-4 -4 -7 -22 -7 -40 l0 -33 -87 -3 -88 -3 -3 -123 -3 -122
+                  281 0 281 0 -3 138 -3 137 -87 3 c-81 3 -87 4 -90 25 -3 21 -9 22 -93 25 -50
+                  1 -94 0 -98 -4z m173 -159 l0 -145 -80 0 -80 0 0 145 0 145 80 0 80 0 0 -145z
+                  m180 -25 l0 -120 -80 0 -80 0 0 120 0 120 80 0 80 0 0 -120z m-360 -15 l0
+                  -105 -80 0 -80 0 0 105 0 105 80 0 80 0 0 -105z" />
+                  <path d="M299 303 c-11 -13 -11 -17 -1 -20 6 -3 12 -13 12 -24 0 -10 5 -19 10
+                  -19 6 0 10 18 10 40 0 43 -9 50 -31 23z" />
+                  <path d="M481 256 c-8 -10 -9 -16 -1 -21 5 -3 10 -1 10 4 0 6 5 11 12 11 6 0
+                  2 -10 -10 -23 -29 -31 -28 -37 8 -37 17 0 30 5 30 10 0 6 -5 10 -11 10 -8 0
+                  -8 4 0 14 13 16 4 46 -14 46 -7 0 -18 -6 -24 -14z" />
+                  <path d="M120 224 c0 -8 4 -13 8 -10 4 2 8 -4 8 -14 0 -10 -4 -16 -8 -14 -4 3
+                  -8 -2 -8 -10 0 -9 9 -16 20 -16 20 0 22 4 22 40 0 36 -2 40 -22 40 -11 0 -20
+                  -7 -20 -16z" />
+                </g>
+              </svg></button>
+          </div>
+          <div class="settings">
+            <fieldset>
+              <legend>Сomplexity:</legend>
+              <div>
+                <input type="radio" id="easy" name="complexity" checked>
+                <label for="easy">Easy</label>
+              </div>
+              <div>
+                <input type="radio" id="normal" name="complexity">
+                <label for="normal">Normal</label>
+              </div>
+              <div>
+                <input type="radio" id="difficult" name="complexity">
+                <label for="difficult">Difficult</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Theme:</legend>
+              <div>
+                <input type="radio" id="google" name="theme" checked>
+                <label for="google">Google Theme</label>
+              </div>
+              <div>
+                <input type="radio" id="fantasy" name="theme">
+                <label for="fantasy">Fantasy</label>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <button class="button button-start" disabled>Start</button>
+      </div>
+    </div>
+    <div class="game hide">
+      <div class="info">
+
+        <div class="info-name">Name: <span></span></div>
+        <div>
+          <img class="img-flag" src="../js30-random-game/assets/png/flag_icon.png" alt="Flag">
+          <div class="info-flag"></div>
+        </div>
+        <div>
+          <img class="img-timer" src="../js30-random-game/assets/png/clock_icon.png" alt="Clock">
+          <div class="info-timer">000</div>
+        </div>
+        <button class="button button-give-up">Give up</button>
+      </div>
+      <div class="field">
+      </div>
+    </div>
+    <div class="wrapper-modal-leader wrapper-modal hide">
+      <div class="modal-leader-board">
+        <div class="header-modal-board">
+          <h2>Leader board</h2>
+          <svg class="close">
+            <g>
+              <line x1="7" x2="25" y1="7" y2="25" />
+              <line x1="7" x2="25" y1="25" y2="7" />
+            </g>
+          </svg>
+        </div>
+        <div class="leader-board">
+          <div>№</div>
+          <div>Score</div>
+          <div>Time</div>
+          <!-- <div>Date</div> -->
+          <div>Name</div>
+          <div>Level</div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper-modal-finish wrapper-modal hide">
+      <div class="modal-finish">
+        <div class="modal-finish-top">
+          <div class="modal-finish-top-col">
+            <div class="img-clock"></div>
+            <p class="time">-- --</p>
+          </div>
+          <div class="modal-finish-top-col">
+            <div class="img-score"></div>
+            <p class="score">-- --</p>
+          </div>
+        </div>
+        <button class="button button-try-again">Try again</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-text">2023</div>
+    <a href="https://rs.school/js-stage0/">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552.85 198.67">
+        <title>rs_school</title>
+        <g data-name="Layer 2">
+          <g data-name="Layer 1">
+            <path
+              d="M275.36 61.37l26.29-1.65q.86 6.41 3.48 9.76 4.28 5.43 12.2 5.43 5.91 0 9.12-2.77a8.34 8.34 0 0 0 3.2-6.44 8.18 8.18 0 0 0-3-6.22q-3-2.74-14.15-5.19-18.18-4.08-25.93-10.86a21.84 21.84 0 0 1-7.81-17.26 23.44 23.44 0 0 1 4-13 26.47 26.47 0 0 1 12-9.64q8-3.51 22-3.51 17.14 0 26.14 6.38t10.71 20.28l-26.05 1.52q-1-6-4.36-8.78t-9.2-2.77c-3.21 0-5.63.69-7.25 2.05a6.25 6.25 0 0 0-2.44 5 5 5 0 0 0 2 3.84q1.95 1.77 9.27 3.3 18.12 3.9 26 7.9t11.4 9.91a25.12 25.12 0 0 1 3.57 13.24 28.37 28.37 0 0 1-4.75 15.86 29.83 29.83 0 0 1-13.3 11q-8.55 3.75-21.54 3.75-22.81 0-31.6-8.78t-10-22.35zM6.27 91V1.53h46.06q12.81 0 19.58 2.19a20.93 20.93 0 0 1 10.92 8.14A24.75 24.75 0 0 1 87 26.35a24.8 24.8 0 0 1-3.2 12.84A24.91 24.91 0 0 1 75.07 48a33.63 33.63 0 0 1-9.7 3.54 27.79 27.79 0 0 1 7.19 3.29A27.79 27.79 0 0 1 77 59.49 35.16 35.16 0 0 1 80.85 65l13.38 26H63L48.24 63.63q-2.81-5.31-5-6.9a11.63 11.63 0 0 0-6.78-2.07H34V91zM34 37.76h11.68A41 41 0 0 0 53 36.54a7.3 7.3 0 0 0 4.48-2.81 8.24 8.24 0 0 0 1.74-5.18 8.23 8.23 0 0 0-2.75-6.65q-2.74-2.32-10.31-2.32H34zM0 167.56l26.29-1.64q.86 6.41 3.48 9.76Q34 181.11 42 181.11q5.91 0 9.12-2.78a8.34 8.34 0 0 0 3.2-6.44 8.2 8.2 0 0 0-3-6.22q-3-2.74-14.15-5.18-18.18-4.1-25.93-10.86a21.87 21.87 0 0 1-7.81-17.27 23.49 23.49 0 0 1 4-13 26.47 26.47 0 0 1 12-9.64q8-3.51 22-3.51 17.14 0 26.14 6.38t10.71 20.28l-26 1.53q-1-6-4.36-8.79t-9.19-2.74q-4.81 0-7.25 2a6.25 6.25 0 0 0-2.44 5 5 5 0 0 0 2 3.85q1.95 1.77 9.27 3.29 18.12 3.9 26 7.9t11.4 9.91a25.15 25.15 0 0 1 3.57 13.24 28.35 28.35 0 0 1-4.75 15.86 29.83 29.83 0 0 1-13.3 11q-8.55 3.75-21.54 3.75-22.81 0-31.6-8.78T0 167.56zm163-7.01l24.22 7.32a44.72 44.72 0 0 1-7.69 17 33.46 33.46 0 0 1-13 10.31q-7.78 3.47-19.8 3.47-14.58 0-23.82-4.23t-16-14.91q-6.72-10.67-6.71-27.31 0-22.18 11.8-34.11t33.4-11.92q16.91 0 26.57 6.84t14.36 21l-24.4 5.43a21 21 0 0 0-2.68-6 16 16 0 0 0-5.67-4.88 16.31 16.31 0 0 0-7.51-1.71q-9.39 0-14.39 7.56-3.8 5.61-3.79 17.61 0 14.86 4.52 20.38t12.69 5.51q7.92 0 12-4.45t5.9-12.91zm45.51-52.83h27.63V139h30.2v-31.28h27.75v89.43h-27.75V161h-30.2v36.18h-27.63zm102.78 44.77q0-21.88 12.2-34.1t34-12.2q22.32 0 34.4 12T404 151.76q0 15.69-5.28 25.72a37.54 37.54 0 0 1-15.25 15.61q-10 5.58-24.86 5.58-15.12 0-25-4.82a37.59 37.59 0 0 1-16.07-15.25q-6.26-10.42-6.25-26.11zm27.63.13q0 13.55 5 19.46t13.7 5.91q8.91 0 13.79-5.79t4.88-20.8q0-12.63-5.1-18.46t-13.82-5.82A16.78 16.78 0 0 0 344 133q-5.07 6-5.08 19.62z" />
+            <path
+              d="M392.28 152.49q0-21.88 12.2-34.1t34-12.2q22.34 0 34.41 12t12.07 33.58q0 15.69-5.27 25.72a37.6 37.6 0 0 1-15.25 15.61q-10 5.58-24.86 5.58-15.13 0-25-4.82a37.67 37.67 0 0 1-16.08-15.25q-6.22-10.43-6.22-26.12zm27.64.13q0 13.55 5 19.46t13.72 5.92q8.91 0 13.79-5.79t4.88-20.8q0-12.63-5.09-18.46t-13.82-5.82A16.77 16.77 0 0 0 425 133q-5.09 6-5.08 19.62z" />
+            <path d="M482.08 107.72h27.64v67.41h43.13v22h-70.77z" />
+          </g>
+        </g>
+      </svg>
+    </a>
+    <a href="https://github.com/evvrod" class="link footer-text">Evgeniya</a>
+  </footer>
+  <script src="script.js" type="module"></script>
+</body>
+
+</html>
